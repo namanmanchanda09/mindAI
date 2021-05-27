@@ -4,19 +4,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Title | mindAI</title>
+<title>Star Wars Classifier | mindAI</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Star Wars Classifier" />
+<meta name="author" content="Naman Manchanda" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Written and maintained by Naman Manchanda." />
-<meta property="og:description" content="Written and maintained by Naman Manchanda." />
-<link rel="canonical" href="https://namanmanchanda09.github.io/mindAI/2021/05/27/starwars.html" />
-<meta property="og:url" content="https://namanmanchanda09.github.io/mindAI/2021/05/27/starwars.html" />
+<meta name="description" content="Buiding a star wars character classifier using fastai" />
+<meta property="og:description" content="Buiding a star wars character classifier using fastai" />
+<link rel="canonical" href="https://namanmanchanda09.github.io/mindAI/fastpages/jupyter/2021/05/27/starwars.html" />
+<meta property="og:url" content="https://namanmanchanda09.github.io/mindAI/fastpages/jupyter/2021/05/27/starwars.html" />
 <meta property="og:site_name" content="mindAI" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-05-27T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Written and maintained by Naman Manchanda.","url":"https://namanmanchanda09.github.io/mindAI/2021/05/27/starwars.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://namanmanchanda09.github.io/mindAI/2021/05/27/starwars.html"},"headline":"Title","dateModified":"2021-05-27T00:00:00-05:00","datePublished":"2021-05-27T00:00:00-05:00","@context":"https://schema.org"}</script>
+{"description":"Buiding a star wars character classifier using fastai","url":"https://namanmanchanda09.github.io/mindAI/fastpages/jupyter/2021/05/27/starwars.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://namanmanchanda09.github.io/mindAI/fastpages/jupyter/2021/05/27/starwars.html"},"headline":"Star Wars Classifier","dateModified":"2021-05-27T00:00:00-05:00","datePublished":"2021-05-27T00:00:00-05:00","author":{"@type":"Person","name":"Naman Manchanda"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/mindAI/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://namanmanchanda09.github.io/mindAI/feed.xml" title="mindAI" /><link rel="shortcut icon" type="image/x-icon" href="/mindAI/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -71,9 +72,11 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-05-27T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Star Wars Classifier</h1><p class="page-description">Buiding a star wars character classifier using fastai</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-05-27T00:00:00-05:00" itemprop="datePublished">
         May 27, 2021
-      </time>
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Naman Manchanda</span></span>
        • <span class="read-time" title="Estimated read time">
     
     
@@ -81,6 +84,16 @@ window.onload = wrap_img;
     
 </span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/mindAI/categories/#fastpages">fastpages</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/mindAI/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
     
 
     
@@ -117,28 +130,6 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">&gt;</span> <span class="s2">&quot;Buiding a star wars character classifier using fastai&quot;</span>
-
-<span class="o">-</span> <span class="n">badges</span><span class="p">:</span> <span class="n">true</span>
-<span class="o">-</span> <span class="n">comments</span><span class="p">:</span> <span class="n">true</span>
-<span class="o">-</span> <span class="n">author</span><span class="p">:</span> <span class="n">Naman</span> <span class="n">Manchanda</span>
-<span class="o">-</span> <span class="n">categories</span><span class="p">:</span> <span class="p">[</span><span class="n">fastpages</span><span class="p">,</span> <span class="n">jupyter</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><h1><center>Star Wars Classifier</center></h1> <a id="100"></a></p>
@@ -212,7 +203,9 @@ This notebook consists of building a Star Wars classifier from scratch. The note
     </div>
 </div>
 </div>
-
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
+        <p>
 <div class="output_wrapper">
 <div class="output">
 
@@ -222,32 +215,41 @@ This notebook consists of building a Star Wars classifier from scratch. The note
 <pre>Collecting icrawler
   Downloading icrawler-0.6.4.tar.gz (26 kB)
 Collecting beautifulsoup4&gt;=4.4.1
-  Downloading beautifulsoup4-4.9.3-py3-none-any.whl (115 kB)
-     |████████████████████████████████| 115 kB 973 kB/s eta 0:00:01
-Requirement already satisfied: lxml in /opt/conda/lib/python3.7/site-packages (from icrawler) (4.6.3)
-Requirement already satisfied: requests&gt;=2.9.1 in /opt/conda/lib/python3.7/site-packages (from icrawler) (2.25.1)
-Requirement already satisfied: six&gt;=1.10.0 in /opt/conda/lib/python3.7/site-packages (from icrawler) (1.15.0)
-Requirement already satisfied: Pillow in /opt/conda/lib/python3.7/site-packages (from icrawler) (7.2.0)
+  Using cached beautifulsoup4-4.9.3-py3-none-any.whl (115 kB)
+Collecting lxml
+  Using cached lxml-4.6.3-cp38-cp38-macosx_10_9_x86_64.whl (4.6 MB)
+Collecting requests&gt;=2.9.1
+  Downloading requests-2.25.1-py2.py3-none-any.whl (61 kB)
+     |████████████████████████████████| 61 kB 5.1 MB/s  eta 0:00:01
+Requirement already satisfied: six&gt;=1.10.0 in /Users/namanmanchanda/miniconda3/envs/nishu/lib/python3.8/site-packages (from icrawler) (1.15.0)
+Requirement already satisfied: Pillow in /Users/namanmanchanda/miniconda3/envs/nishu/lib/python3.8/site-packages (from icrawler) (8.1.1)
 Collecting soupsieve&gt;1.2
-  Downloading soupsieve-2.2.1-py3-none-any.whl (33 kB)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /opt/conda/lib/python3.7/site-packages (from requests&gt;=2.9.1-&gt;icrawler) (2.10)
-Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /opt/conda/lib/python3.7/site-packages (from requests&gt;=2.9.1-&gt;icrawler) (4.0.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /opt/conda/lib/python3.7/site-packages (from requests&gt;=2.9.1-&gt;icrawler) (1.26.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/lib/python3.7/site-packages (from requests&gt;=2.9.1-&gt;icrawler) (2020.12.5)
+  Using cached soupsieve-2.2.1-py3-none-any.whl (33 kB)
+Collecting idna&lt;3,&gt;=2.5
+  Downloading idna-2.10-py2.py3-none-any.whl (58 kB)
+     |████████████████████████████████| 58 kB 9.3 MB/s  eta 0:00:01
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/namanmanchanda/miniconda3/envs/nishu/lib/python3.8/site-packages (from requests&gt;=2.9.1-&gt;icrawler) (2020.12.5)
+Collecting chardet&lt;5,&gt;=3.0.2
+  Downloading chardet-4.0.0-py2.py3-none-any.whl (178 kB)
+     |████████████████████████████████| 178 kB 19.4 MB/s eta 0:00:01
+Collecting urllib3&lt;1.27,&gt;=1.21.1
+  Downloading urllib3-1.26.5-py2.py3-none-any.whl (138 kB)
+     |████████████████████████████████| 138 kB 9.4 MB/s eta 0:00:01
 Building wheels for collected packages: icrawler
   Building wheel for icrawler (setup.py) ... done
-  Created wheel for icrawler: filename=icrawler-0.6.4-py2.py3-none-any.whl size=35063 sha256=ee49e0f6ae08d4f09be3910a841849600317d73ef73da79f87eaaf8a1d94d250
-  Stored in directory: /root/.cache/pip/wheels/34/9a/e6/a8bc00ac61ff1f0e613af0d181feaef49ed226915ee7ff19d1
+  Created wheel for icrawler: filename=icrawler-0.6.4-py2.py3-none-any.whl size=35063 sha256=bd50c3f1d07da534fa4b7615bd47053e2d92da940734f7757b3c9d172fc18b9d
+  Stored in directory: /Users/namanmanchanda/Library/Caches/pip/wheels/5b/a5/50/db28e1726fdc127cb6c5a757a4350af44a32b4e5d2c5d45dac
 Successfully built icrawler
-Installing collected packages: soupsieve, beautifulsoup4, icrawler
-Successfully installed beautifulsoup4-4.9.3 icrawler-0.6.4 soupsieve-2.2.1
+Installing collected packages: urllib3, soupsieve, idna, chardet, requests, lxml, beautifulsoup4, icrawler
+Successfully installed beautifulsoup4-4.9.3 chardet-4.0.0 icrawler-0.6.4 idna-2.10 lxml-4.6.3 requests-2.25.1 soupsieve-2.2.1 urllib3-1.26.5
 </pre>
 </div>
 </div>
 
 </div>
 </div>
-
+</p>
+    </details>
 </div>
     
 
@@ -922,7 +924,15 @@ rmdir wookie/images<br />
 
 
 
-  </div><a class="u-url" href="/mindAI/2021/05/27/starwars.html" hidden></a>
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="namanmanchanda09/mindAI"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/mindAI/fastpages/jupyter/2021/05/27/starwars.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
